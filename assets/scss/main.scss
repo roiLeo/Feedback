@@ -1,0 +1,60 @@
+// Import Bulma's core
+@import "~bulma/sass/utilities/_all";
+
+@function findLightColor($color) {
+  @if type-of($color) == 'color' {
+    $l: 96%;
+    @if lightness($color) > 96% {
+	  $l: lightness($color);
+	}
+	@return change-color($color, $lightness: $l);
+}
+  @return $background;
+}
+
+@function findDarkColor($color) {
+  @if type-of($color) == 'color' {
+    $base-l: 29%;
+    $luminance: colorLuminance($color);
+    $luminance-delta: (0.53 - $luminance);
+    $target-l: round($base-l + ($luminance-delta * 53));
+	@return change-color($color, $lightness: max($base-l, $target-l));
+  }
+  @return $text-strong;
+}
+
+// Set your colors
+$primary: #00ebc7;
+$primary-invert: findColorInvert($primary);
+$blue: #0495fe;
+$blue-inverted: findColorInvert($blue);
+$green: #2fba69;
+$green-inverted: findColorInvert($green);
+$green-test: findLightColor($green);
+$red: #e54e57;
+$red-inverted: findColorInvert($red);
+
+// Setup $colors to use as bulma classes (e.g. 'is-twitter')
+$colors: (
+    "white": ($white, $black),
+    "black": ($black, $white),
+    "light": ($light, $light-invert),
+    "dark": ($dark, $dark-invert),
+    "primary": ($primary, $primary-invert),
+    "info": ($info, $info-invert),
+    "success": ($success, $success-invert),
+    "warning": ($warning, $warning-invert),
+    "danger": ($danger, $danger-invert),
+    "blue": ($blue, $blue-invert),
+    "green": ($green, $green-invert),
+    "red": ($red, $red-invert),
+);
+
+// Links
+$link: $primary;
+$link-invert: $primary-invert;
+$link-focus-border: $primary;
+
+// Import Bulma and Buefy styles
+@import "~bulma";
+@import "~buefy/src/scss/buefy";

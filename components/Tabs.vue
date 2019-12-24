@@ -1,0 +1,35 @@
+<template>
+    <section>        
+		<b-tabs type="is-toggle-rounded is-centered">
+            <b-tab-item 
+			v-for="tab in TabsData"
+			:key="tab.title"
+			:label="tab.title">
+				<template slot="header">
+					<b-icon :icon="tab.icon" size="is-small"></b-icon>
+					<span> {{tab.title}} <b-tag :type="tab.tag" rounded> {{tab.count}} </b-tag> </span>
+				</template>
+			</b-tab-item>
+        </b-tabs>
+    </section>
+</template>
+
+<script>
+export default {
+	data() {
+        return {
+			TabsData: [
+				{title: 'Pending', icon: 'pause', tag: 'is-blue', count: 3},
+				{title: 'In progress', icon: 'hourglass-half', tag: 'is-green', count: 1},
+				{title: 'Completed', icon: 'check-square', tag: 'is-red', count: 11},
+			],
+        }
+    },
+}
+</script>
+
+<style>
+.tabs .icon {
+	vertical-align: middle;
+}
+</style>
