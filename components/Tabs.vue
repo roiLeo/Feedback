@@ -1,6 +1,8 @@
 <template>
     <section>        
-		<b-tabs type="is-toggle-rounded is-centered">
+		<b-tabs 
+		type="is-toggle-rounded" 
+		position="is-centered">
             <b-tab-item 
 			v-for="tab in TabsData"
 			:key="tab.title"
@@ -31,5 +33,8 @@ export default {
 <style>
 .tabs .icon {
 	vertical-align: middle;
+}
+.tabs a {
+	background-color: #fff;
 }
 </style>

@@ -1,12 +1,12 @@
 <template>
 	<div class="columns is-centered">
-		<div class="column is-4">
+		<div class="column is-6">
 			<b-field>
 				<b-input placeholder="Search..." 
 				rounded
+				expanded
 				type="text"
 				icon="search"
-				expanded="true"
 				size="is-medium"
 				v-bind:value="value"
 				v-on:input="$emit('input', $event.target.value)"></b-input>
