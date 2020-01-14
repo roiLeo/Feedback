@@ -9,7 +9,13 @@
 						icon-left="chevron-up"
 						@click.prevent="incrementCounter"
 					></b-button>
-					<h2 class="title is-3 has-text-centered">{{ count }}</h2>
+					<h2 class="is-size-3 has-text-centered has-text-weight-bold">{{ count }}</h2>
+					<b-button
+						size="is-small"
+						type="is-flat"
+						icon-left="chevron-down"
+						@click.prevent="decrementCounter"
+					></b-button>
 				</div>
 				<div class="media-content">
 					<p class="title is-4">
@@ -39,8 +45,11 @@ export default {
 	},
 	methods: {
         incrementCounter() {
-            this.count += 1
-        }
+            this.count ++
+		},
+		decrementCounter() {
+			this.count > 0 && this.count --
+		}
     }
-};
+}
 </script>
