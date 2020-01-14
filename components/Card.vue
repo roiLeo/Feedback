@@ -8,7 +8,11 @@
 					</figure>
 				</div>
 				<div class="media-content">
-					<p class="title is-4">{{suggestion.title}}</p>
+					<p class="title is-4">
+						<nuxt-link
+              				:to="{ name: 'suggestions-id', params: { id: suggestion.id } }"
+              			>{{suggestion.title}}</nuxt-link>
+					</p>
 					<p class="subtitle is-6">@User {{suggestion.userId}}</p>
 				</div>
 			</div>

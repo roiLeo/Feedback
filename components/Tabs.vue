@@ -30,9 +30,9 @@ export default {
 	data() {
         return {
 			TabsData: [
-				{title: 'Pending', icon: 'pause', tag: 'is-blue', count: 3},
-				{title: 'In progress', icon: 'hourglass-half', tag: 'is-green', count: 1},
-				{title: 'Completed', icon: 'check-square', tag: 'is-red', count: 11},
+				{title: 'Pending', icon: 'pause', tag: 'is-white has-text-blue', count: 3},
+				{title: 'In progress', icon: 'hourglass-half', tag: 'is-white has-text-green', count: 1},
+				{title: 'Completed', icon: 'check-square', tag: 'is-white has-text-red', count: 11},
 			],
         }
     },
