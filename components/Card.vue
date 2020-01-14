@@ -9,7 +9,7 @@
 						icon-left="chevron-up"
 						@click.prevent="incrementCounter"
 					></b-button>
-					<h2 class="is-size-3 has-text-centered has-text-weight-bold">{{ count }}</h2>
+					<div class="is-size-3 has-text-centered has-text-weight-bold">{{ count }}</div>
 					<b-button
 						size="is-small"
 						type="is-flat"
@@ -20,10 +20,19 @@
 				<div class="media-content">
 					<p class="title is-4">
 						<nuxt-link
-              				:to="{ name: 'suggestions-id', params: { id: suggestion.id } }"
-              			>{{suggestion.title}}</nuxt-link>
+							:to="{ name: 'suggestions-id', params: { id: suggestion.id } }"
+						>{{suggestion.title}}</nuxt-link>
 					</p>
 					<p class="subtitle is-6">@User {{suggestion.userId}}</p>
+				</div>
+				<div class="media-right">
+					<b-button
+						tag="nuxt-link"
+						:to="{ name: 'suggestions-id', params: { id: suggestion.id } }"
+						type="is-primary has-text-light"
+						icon-left="comment-alt"
+						rounded
+					></b-button>
 				</div>
 			</div>
 		</div>
@@ -41,15 +50,28 @@ export default {
 	data() {
 		return {
 			count: 0
-		}
+		};
 	},
 	methods: {
-        incrementCounter() {
-            this.count ++
+		incrementCounter() {
+			this.count++;
 		},
 		decrementCounter() {
-			this.count > 0 && this.count --
+			this.count > 0 && this.count--;
 		}
-    }
+	}
 }
 </script>
+
+<style>
+.card {
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+	border-radius: 0.5rem;
+}
+
+.card .media-right {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+</style>
