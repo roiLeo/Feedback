@@ -2,7 +2,7 @@
 	<section class="home">
 		<h1 class="title is-2 has-text-centered">Feature Requests</h1>
 		<h2
-			class="subtitle has-text-light has-text-centered"
+			class="subtitle has-text-grey has-text-centered"
 		>Join other users in helping make the website better</h2>
 
 		<SearchBar></SearchBar>

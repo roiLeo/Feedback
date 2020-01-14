@@ -4,7 +4,7 @@
 
 		<h1 class="title is-2 has-text-centered">Suggestion</h1>
 
-		<Card :suggestion="suggestion"></Card>
+		<CardInfos :suggestion="suggestion"></CardInfos>
 
 		<section class="section">
 			<b-field label="Title">
@@ -23,11 +23,11 @@
 </template>
 
 <script>
-import Card from '~/components/Card';
+import CardInfos from '~/components/CardInfos';
 
 export default {
 	components: {
-		Card
+		CardInfos
 	},
 
 	created() {
