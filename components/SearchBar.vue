@@ -2,7 +2,7 @@
 	<div class="columns is-centered">
 		<div class="column is-6">
 			<b-field>
-				<b-input placeholder="Search..." 
+				<b-input placeholder="Search suggestions..." 
 				rounded
 				expanded
 				type="text"

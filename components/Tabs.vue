@@ -1,8 +1,8 @@
 <template>
     <section>     
 		<b-button
-			size="is-small"
-			type="is-primary"
+			size="is-medium"
+			type="is-info"
 			icon-left="plus"
 			tag="nuxt-link"
 			to="/new"

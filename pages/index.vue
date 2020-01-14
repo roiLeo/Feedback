@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import Card from '~/components/Card';
-import SearchBar from '~/components/SearchBar';
-import Tabs from '~/components/Tabs';
+import Card from '~/components/Card'
+import SearchBar from '~/components/SearchBar'
+import Tabs from '~/components/Tabs'
 
 export default {
 	name: 'HomePage',
@@ -39,5 +39,5 @@ export default {
 			return this.$store.getters.suggestions
 		},
 	}
-};
+}
 </script>

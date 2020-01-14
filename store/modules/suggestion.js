@@ -8,6 +8,9 @@ export const mutations = {
 	ADD_SUGGESTION (state, suggestion) {
 		state.list.push(suggestion)
 	},
+	SET_SUGGESTION (state, suggestion) {
+		state.list = suggestion
+	},
 	SET_SUGGESTIONS (state, suggestions) {
 		state.list = suggestions
 	},
@@ -20,6 +23,10 @@ export const mutations = {
 }
 
 export const actions = {
+	async loadSuggestion({commit}, id) {
+		let response = await SuggestionsService.getSuggestion(id)
+		commit('SET_SUGGESTION', response)
+	},
 	async loadSuggestions({commit}) {
 		let response = await SuggestionsService.getSuggestions()
 		commit('SET_SUGGESTIONS', response)
@@ -27,5 +34,5 @@ export const actions = {
 }
 
 export const getters = {
-	suggestions: state => state.list
+	suggestions: state => state.list,
 } 

@@ -1,6 +1,6 @@
 <template>
     <section class="new">
-		<b-button size="is-small"
+		<b-button
 		type="is-flat"
 		icon-left="arrow-left" 
 		tag="nuxt-link" 
@@ -17,7 +17,7 @@
 		</b-field>
 
 		<b-button 
-		type="is-primary"
+		type="is-info"
 		class="is-pulled-right">Submit</b-button>
     </section>
 </template>
