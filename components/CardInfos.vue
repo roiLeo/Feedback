@@ -13,14 +13,14 @@
               				:to="{ name: 'suggestions-id', params: { id: suggestion.id } }"
               			>{{suggestion.title}}</nuxt-link>
 					</p>
-					<p class="subtitle is-6">@User {{suggestion.userId}}</p>
+					<p class="subtitle is-6">@{{suggestion.author}}</p>
 				</div>
 			</div>
 
 			<div class="content">
-				{{suggestion.body}}
+				{{suggestion.content}}
 				<br />
-				<time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+				<time :datetime="suggestion.creationDate">{{suggestion.creationDate }}</time>
 			</div>
 		</div>
 	</div>

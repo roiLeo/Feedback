@@ -1,0 +1,61 @@
+{
+	"posts": [
+	  {
+		"id": 1,
+		"title": "Yellow Pail",
+		"content": "On-demand sand castle construction expertise.",
+		"url": "#",
+		"votes": 16,
+		"avatar": "./images/avatars/daniel.jpg",
+		"author": "Not Leo",
+		"date": "2020-03-26 11:16:18",
+		"creationDate": "2020-03-26 11:16:18",
+		"tags": [
+			1, 2, 7
+		]
+	  },
+	  {
+		"id": 2,
+		"title": "Supermajority: The Fantasy Congress League",
+		"content": "Earn points when your favorite politicians pass legislation.",
+		"url": "#",
+		"votes": 11,
+		"avatar": "./images/avatars/kristy.png",
+		"author": "Not Leo",
+		"date": "2020-03-26 11:16:18",
+		"creationDate": "2020-03-26 11:16:18",
+		"tags": [
+			1, 2, 7
+		]
+	  },
+	  {
+		"id": 3,
+		"title": "Tinfoild: Tailored tinfoil hats",
+		"content": "We have your measurements and shipping address.",
+		"url": "#",
+		"votes": 17,
+		"avatar": "./images/avatars/veronika.jpg",
+		"author": "Not Leo",
+		"date": "2020-03-26 11:16:18",
+		"creationDate": "2020-03-26 11:16:18",
+		"tags": [
+			1, 2, 7
+		]
+	  },
+	  {
+		"id": 4,
+		"title": "Haught or Naught",
+		"content": "High-minded or absent-minded? You decide.",
+		"url": "#",
+		"votes": 9,
+		"avatar": "./images/avatars/molly.png",
+		"author": "Not Leo",
+		"date": "2020-03-26 11:16:18",
+		"creationDate": "2020-03-26 11:16:18",
+		"tags": [
+			1, 2, 7
+		]
+	  }
+	]
+  }
+  

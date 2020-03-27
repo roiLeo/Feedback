@@ -1,14 +1,5 @@
 <template>
     <section>     
-		<b-button
-			size="is-medium"
-			type="is-info"
-			icon-left="plus"
-			tag="nuxt-link"
-			to="/new"
-			class="is-pulled-right"
-		>New</b-button>
-
 		<b-tabs 
 		type="is-toggle-rounded" 
 		position="is-centered">

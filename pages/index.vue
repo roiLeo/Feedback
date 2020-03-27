@@ -5,8 +5,23 @@
 			class="subtitle has-text-grey has-text-centered"
 		>Join other users in helping make the website better</h2>
 
-		<SearchBar></SearchBar>
+		<div class="columns is-centered">
+			<div class="column is-6">
+				<SearchBar></SearchBar>
+			</div>
+		</div>
+
 		<Tabs></Tabs>
+
+		<div class="has-text-right">
+					<b-button
+			size="is-medium"
+			type="is-info"
+			icon-left="plus"
+			tag="nuxt-link"
+			to="/new"
+		>New</b-button>
+		</div>
 
 		<Card 
 		v-for="suggestion in suggestions"

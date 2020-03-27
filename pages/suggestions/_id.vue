@@ -12,7 +12,7 @@
 			</b-field>
 
 			<b-field label="Description">
-				<b-input v-model="suggestion.body" maxlength="200" type="textarea" placeholder="Go into more detail about your idea"></b-input>
+				<b-input v-model="suggestion.content" maxlength="200" type="textarea" placeholder="Go into more detail about your idea"></b-input>
 			</b-field>
 
 			<b-button 

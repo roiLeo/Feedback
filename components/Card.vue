@@ -3,19 +3,7 @@
 		<div class="card-content">
 			<div class="media">
 				<div class="media-left">
-					<b-button
-						size="is-small"
-						type="is-flat"
-						icon-left="chevron-up"
-						@click.prevent="incrementCounter"
-					></b-button>
-					<div class="is-size-3 has-text-centered has-text-weight-bold">{{ count }}</div>
-					<b-button
-						size="is-small"
-						type="is-flat"
-						icon-left="chevron-down"
-						@click.prevent="decrementCounter"
-					></b-button>
+					<VotesCounter :votes="suggestion.votes" @updateVotes="updateSuggestionVote"></VotesCounter>
 				</div>
 				<div class="media-content">
 					<p class="title is-4">
@@ -31,7 +19,6 @@
 						:to="{ name: 'suggestions-id', params: { id: suggestion.id } }"
 						type="is-primary has-text-light"
 						icon-left="comment-alt"
-						rounded
 					></b-button>
 				</div>
 			</div>
@@ -40,7 +27,12 @@
 </template>
 
 <script>
+import VotesCounter from '~/components/VotesCounter'
+
 export default {
+	components: {
+		VotesCounter
+	},
 	props: {
 		suggestion: {
 			type: Object,
@@ -53,11 +45,8 @@ export default {
 		};
 	},
 	methods: {
-		incrementCounter() {
-			this.count++;
-		},
-		decrementCounter() {
-			this.count > 0 && this.count--;
+		updateSuggestionVote(number) {
+			this.suggestion.votes = number
 		}
 	}
 }
