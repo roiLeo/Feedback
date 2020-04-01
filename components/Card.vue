@@ -11,7 +11,7 @@
 							:to="{ name: 'suggestions-id', params: { id: suggestion.id } }"
 						>{{suggestion.title}}</nuxt-link>
 					</p>
-					<p class="subtitle is-6">@User {{suggestion.userId}}</p>
+					<p class="subtitle is-6">@{{suggestion.author}}</p>
 				</div>
 				<div class="media-right">
 					<b-button

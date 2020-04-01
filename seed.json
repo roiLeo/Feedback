@@ -6,12 +6,14 @@
 		"content": "On-demand sand castle construction expertise.",
 		"url": "#",
 		"votes": 16,
+		"status": 1,
+		"commentStatus": "open",
 		"avatar": "./images/avatars/daniel.jpg",
 		"author": "Not Leo",
 		"date": "2020-03-26 11:16:18",
 		"creationDate": "2020-03-26 11:16:18",
 		"tags": [
-			1, 2, 7
+			1, 3
 		]
 	  },
 	  {
@@ -20,12 +22,14 @@
 		"content": "Earn points when your favorite politicians pass legislation.",
 		"url": "#",
 		"votes": 11,
+		"status": 1,
+		"commentStatus": "open",
 		"avatar": "./images/avatars/kristy.png",
 		"author": "Not Leo",
 		"date": "2020-03-26 11:16:18",
 		"creationDate": "2020-03-26 11:16:18",
 		"tags": [
-			1, 2, 7
+			1
 		]
 	  },
 	  {
@@ -34,12 +38,14 @@
 		"content": "We have your measurements and shipping address.",
 		"url": "#",
 		"votes": 17,
+		"status": 2,
+		"commentStatus": "open",
 		"avatar": "./images/avatars/veronika.jpg",
 		"author": "Not Leo",
 		"date": "2020-03-26 11:16:18",
 		"creationDate": "2020-03-26 11:16:18",
 		"tags": [
-			1, 2, 7
+			1, 2, 3
 		]
 	  },
 	  {
@@ -48,14 +54,33 @@
 		"content": "High-minded or absent-minded? You decide.",
 		"url": "#",
 		"votes": 9,
+		"status": 3,
+		"commentStatus": "open",
 		"avatar": "./images/avatars/molly.png",
 		"author": "Not Leo",
 		"date": "2020-03-26 11:16:18",
 		"creationDate": "2020-03-26 11:16:18",
 		"tags": [
-			1, 2, 7
+			3
 		]
 	  }
+	],
+	"status": [
+		{
+			"id": 1,
+			"desc": "Pending",
+			"icon": "pause"
+		},
+		{
+			"id": 2,
+			"desc": "In progress",
+			"icon": "hourglass-half"
+		},
+		{
+			"id": 3,
+			"desc": "Completed",
+			"icon": "check-square"
+		}
 	]
   }
   

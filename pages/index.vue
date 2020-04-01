@@ -11,7 +11,7 @@
 			</div>
 		</div>
 
-		<Tabs></Tabs>
+		<Tabs :status="status" :count="countByStatus"></Tabs>
 
 		<div class="has-text-right">
 					<b-button
@@ -46,6 +46,7 @@ export default {
 
 	created() {
 		this.$store.dispatch('loadSuggestions')
+		this.$store.dispatch('loadStatus')
 	},
 
 	computed: {
@@ -53,6 +54,17 @@ export default {
 			// stored in suggestions = []
 			return this.$store.getters.suggestions
 		},
+		status() {
+			// stored in status = []
+			return this.$store.getters.status
+		},
+		countByStatus() {
+			return this.suggestions.reduce((acc, d) => {
+				const found = acc.find(a => a.status === d.status)
+				!found ? acc.push({status: d.status, count: 1}) : found.count++
+				return acc
+			}, []);
+		}
 	}
 }
 </script>

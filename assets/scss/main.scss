@@ -1,16 +1,8 @@
 // Import Bulma's core
 @import "~bulma/sass/utilities/_all";
 
-body {
-	color:#4a5568!important;
-	background-color:#f8f8f8;
-}
-.title,
-.subtitle {
-	color: #4a5568!important;
-}
-
 // Set your colors
+$light-grey-text: #4a5568;
 $primary: #5a67d8;
 $primary-invert: findColorInvert($primary);
 $blue: #0495fe;
@@ -41,6 +33,18 @@ $colors: (
 $link: $primary;
 $link-invert: $primary-invert;
 $link-focus-border: $primary;
+
+body {
+	color: $light-grey-text;
+	background-color:#f8f8f8;
+}
+.subtitle {
+	color: $light-grey-text!important;
+}
+.title {
+	font-weight: 900!important;
+	color: $light-grey-text!important;
+}
 
 // Import Bulma and Buefy styles
 @import "~bulma";

@@ -4,12 +4,14 @@
 		type="is-toggle-rounded" 
 		position="is-centered">
             <b-tab-item 
-			v-for="tab in TabsData"
-			:key="tab.title"
-			:label="tab.title">
+			v-for="tab in status"
+			:key="tab.desc"
+			:label="tab.desc">
 				<template slot="header">
 					<b-icon :icon="tab.icon" size="is-small"></b-icon>
-					<span> {{tab.title}} <b-tag :type="tab.tag" rounded> {{tab.count}} </b-tag> </span>
+					<span> {{tab.desc}} </span>
+
+					<b-tag type="has-text-primary" rounded> {{displayCounterByStatus(tab.id) || 0}} </b-tag> 
 				</template>
 			</b-tab-item>
         </b-tabs>
@@ -18,21 +20,29 @@
 
 <script>
 export default {
-	data() {
-        return {
-			TabsData: [
-				{title: 'Pending', icon: 'pause', tag: 'is-white has-text-blue', count: 3},
-				{title: 'In progress', icon: 'hourglass-half', tag: 'is-white has-text-green', count: 1},
-				{title: 'Completed', icon: 'check-square', tag: 'is-white has-text-red', count: 11},
-			],
-        }
-    },
+	props: {
+		status: {
+			type: Array,
+			required: true
+		},
+		count: {
+			type: Array
+		},
+	},
+	methods: {
+		displayCounterByStatus(status) {
+			return this.count.find(a => a.status === status).count
+		}
+	},
 }
 </script>
 
 <style>
 .tabs .icon {
 	vertical-align: middle;
+}
+.tabs .tag {
+	margin-left: .5em;
 }
 .tabs a {
 	background-color: #fff;
