@@ -41,14 +41,16 @@ export default {
 	},
 	methods: {
 		updateSuggestionVote(number) {
-			let newsuggestion = {
-				id: this.suggestion._id,
-				data: {
-					votes: number
+			if (number) {
+				let newsuggestion = {
+					id: this.suggestion._id,
+					data: {
+						votes: number
+					}
 				}
-			}
 
-			this.$store.dispatch('updateSuggestion', newsuggestion)
+				this.$store.dispatch('updateSuggestion', newsuggestion)
+			}
 		}
 	}
 }
