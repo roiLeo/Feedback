@@ -47,11 +47,7 @@ export default {
 					votes: number
 				}
 			}
-
-			console.log(this.suggestion)
-			console.log(newsuggestion)
 			this.$store.dispatch('updateSuggestion', newsuggestion)
-			// this.suggestion.votes = number
 		}
 	}
 }
