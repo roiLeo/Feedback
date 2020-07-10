@@ -8,11 +8,11 @@ export const mutations = {
 	ADD_SUGGESTION (state, suggestion) {
 		state.list.push(suggestion)
 	},
-	SET_SUGGESTION (state, suggestion) {
+	SET_SINGLE_SUGGESTION (state, suggestion) {
 		state.list = suggestion
 	},
 	SET_SUGGESTION (state, suggestions) {
-		if (state.list.length > 1) {
+		if (state.list.length) {
 			state.list = [
 				...state.list.map(s => 
 					s._id !== suggestions._id ? s : suggestions
@@ -30,7 +30,7 @@ export const mutations = {
 export const actions = {
 	async loadSuggestion({commit}, id) {
 		let response = await SuggestionsService.getSuggestion(id)
-		commit('SET_SUGGESTION', response)
+		commit('SET_SINGLE_SUGGESTION', response)
 	},
 	async updateSuggestion({commit}, suggestion) {
 		let response = await SuggestionsService.updateSuggestion(suggestion)
