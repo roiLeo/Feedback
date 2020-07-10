@@ -8,7 +8,7 @@
 				<div class="media-content">
 					<p class="title is-4">
 						<nuxt-link
-							:to="{ name: 'suggestions-id', params: { id: suggestion.id } }"
+							:to="{ name: 'suggestions-id', params: { id: suggestion._id } }"
 						>{{suggestion.title}}</nuxt-link>
 					</p>
 					<p class="subtitle is-6">@{{suggestion.author}}</p>
@@ -16,7 +16,7 @@
 				<div class="media-right">
 					<b-button
 						tag="nuxt-link"
-						:to="{ name: 'suggestions-id', params: { id: suggestion.id } }"
+						:to="{ name: 'suggestions-id', params: { id: suggestion._id } }"
 						type="is-primary has-text-light"
 						icon-left="comment-alt"
 					></b-button>
@@ -41,7 +41,17 @@ export default {
 	},
 	methods: {
 		updateSuggestionVote(number) {
-			this.suggestion.votes = number
+			let newsuggestion = {
+				id: this.suggestion._id,
+				data: {
+					votes: number
+				}
+			}
+
+			console.log(this.suggestion)
+			console.log(newsuggestion)
+			this.$store.dispatch('updateSuggestion', newsuggestion)
+			// this.suggestion.votes = number
 		}
 	}
 }

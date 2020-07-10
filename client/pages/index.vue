@@ -14,13 +14,13 @@
 		<!-- <Tabs :status="status" :count="countByStatus"></Tabs> -->
 
 		<div class="has-text-right">
-					<b-button
-			size="is-medium"
-			type="is-info"
-			icon-left="plus"
-			tag="nuxt-link"
-			to="/new"
-		>New</b-button>
+			<b-button
+				size="is-medium"
+				type="is-info"
+				icon-left="plus"
+				tag="nuxt-link"
+				to="/new"
+			>New</b-button>
 		</div>
 
 		<Card 
@@ -44,18 +44,13 @@ export default {
 		Tabs
 	},
 
-	// created() {
-	// 	this.$store.dispatch('loadStatus')
-	// },
-
-	fetch ({store}) {
-		store.dispatch('loadSuggestions')
-		store.dispatch('loadStatus')
+	async fetch ({store}) {
+		await store.dispatch('loadSuggestions')
+		await store.dispatch('loadStatus')
   	},
 
 	computed: {
 		suggestions() {
-			// stored in suggestions = []
 			return this.$store.getters.suggestions
 		},
 		status() {

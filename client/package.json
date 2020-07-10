@@ -12,17 +12,18 @@
     "test": "jest"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.28",
-    "@fortawesome/free-solid-svg-icons": "^5.13.0",
-    "@fortawesome/vue-fontawesome": "^0.1.9",
+    "@fortawesome/fontawesome-svg-core": "^1.2.29",
+    "@fortawesome/free-solid-svg-icons": "^5.13.1",
+    "@fortawesome/vue-fontawesome": "^0.1.10",
     "axios": "^0.19.2",
     "express": "^4.17.1",
-    "nuxt": "^2.12.1",
-    "nuxt-buefy": "^0.3.24",
+    "nuxt": "^2.13.3",
+    "nuxt-buefy": "^0.3.31",
     "nuxt-fontawesome": "^0.4.0"
   },
   "devDependencies": {
-    "@vue/test-utils": "^1.0.0-beta.32",
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@vue/test-utils": "^1.0.3",
     "babel-jest": "^26.1.0",
     "jest": "^26.1.0",
     "node-sass": "^4.14.1",

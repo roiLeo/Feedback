@@ -41,7 +41,14 @@ export default {
 	},
 	methods: {
 		updateSuggestionVote(number) {
-			this.suggestion.votes = number
+			let newsuggestion = {
+				id: this.suggestion._id,
+				data: {
+					votes: number
+				}
+			}
+
+			this.$store.dispatch('updateSuggestion', newsuggestion)
 		}
 	}
 }

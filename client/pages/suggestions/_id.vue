@@ -7,17 +7,20 @@
 		<CardInfos :suggestion="suggestion"></CardInfos>
 
 		<section class="section">
-			<b-field label="Title">
-				<b-input v-model="suggestion.title" placeholder="Quick summary about your suggestion"></b-input>
-			</b-field>
+			<form @submit.prevent="updateSuggestion">
+				<b-field label="Title">
+					<b-input v-model="suggestion.title" placeholder="Quick summary about your suggestion" required></b-input>
+				</b-field>
 
-			<b-field label="Description">
-				<b-input v-model="suggestion.content" maxlength="350" type="textarea" placeholder="Go into more detail about your idea"></b-input>
-			</b-field>
+				<b-field label="Description">
+					<b-input v-model="suggestion.content" maxlength="350" type="textarea" placeholder="Go into more detail about your idea" required></b-input>
+				</b-field>
 
-			<b-button 
-			type="is-info"
-			class="is-pulled-right">Edit</b-button>
+				<b-button 
+				type="is-info"
+				native-type="submit"
+				class="is-pulled-right">Edit</b-button>
+			</form>
 		</section>
 	</section>
 </template>
@@ -31,7 +34,7 @@ export default {
 	},
 
 	created() {
-		this.$store.dispatch('loadSuggestion', this.$route.params.id);
+		this.$store.dispatch('loadSuggestion', this.$route.params.id)
 	},
 
 	computed: {
@@ -39,8 +42,20 @@ export default {
 			// stored in suggestion = []
 			return this.$store.getters.suggestions
 		},
+	},
+	methods: {
+		updateSuggestion() {
+			let newsuggestion = {
+				id: this.$route.params.id,
+				data: {
+					title: this.suggestion.title,
+					content: this.suggestion.content
+				}
+			}
+			this.$store.dispatch('updateSuggestion', newsuggestion)
+		}
 	}
-};
+}
 </script>
 
 <style>

@@ -11,15 +11,20 @@ export const mutations = {
 	SET_SUGGESTION (state, suggestion) {
 		state.list = suggestion
 	},
-	SET_SUGGESTIONS (state, suggestions) {
-		state.list = suggestions
+	SET_SUGGESTION (state, suggestions) {
+		if (state.list.length > 1) {
+			state.list = [
+				...state.list.map(s => 
+					s._id !== suggestions._id ? s : suggestions
+				)
+			]
+		} else {
+			state.list = suggestions
+		}
 	},
 	// remove (state, { todo }) {
 	// 	state.list.splice(state.list.indexOf(todo), 1)
 	// },
-	// toggle (state, todo) {
-	// 	todo.done = !todo.done
-	// }
 }
 
 export const actions = {
@@ -27,9 +32,13 @@ export const actions = {
 		let response = await SuggestionsService.getSuggestion(id)
 		commit('SET_SUGGESTION', response)
 	},
+	async updateSuggestion({commit}, suggestion) {
+		let response = await SuggestionsService.updateSuggestion(suggestion)
+		commit('SET_SUGGESTION', response)
+	},
 	async loadSuggestions({commit}) {
 		let response = await SuggestionsService.getSuggestions()
-		commit('SET_SUGGESTIONS', response)
+		commit('SET_SUGGESTION', response)
 	},
 	async addSuggestion({commit}, suggestion) {
 		let response = await SuggestionsService.addSuggestion(suggestion)
