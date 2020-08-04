@@ -1,8 +1,9 @@
 <template>
 	<section class="suggestion">
-		<b-button type="is-flat" icon-left="arrow-left" tag="nuxt-link" to="/">Back</b-button>
 
 		<h1 class="title is-2 has-text-centered">Suggestion</h1>
+
+		<b-button type="is-flat" icon-left="arrow-left" tag="nuxt-link" to="/">Back</b-button>
 
 		<CardInfos :suggestion="suggestion"></CardInfos>
 
@@ -16,7 +17,7 @@
 					<b-input v-model="suggestion.content" maxlength="350" type="textarea" placeholder="Go into more detail about your idea" required></b-input>
 				</b-field>
 
-				<b-button 
+				<b-button
 				type="is-info"
 				native-type="submit"
 				class="is-pulled-right">Edit</b-button>
@@ -33,26 +34,25 @@ export default {
 		CardInfos
 	},
 
-	created() {
+	created () {
 		this.$store.dispatch('loadSuggestion', this.$route.params.id)
 	},
 
 	computed: {
-		suggestion() {
-			// stored in suggestion = []
+		suggestion () {
+			// Stored in suggestion = []
 			return this.$store.getters.suggestions
-		},
+		}
 	},
 	methods: {
-		updateSuggestion() {
-			let newsuggestion = {
+		updateSuggestion () {
+			this.$store.dispatch('updateSuggestion', {
 				id: this.$route.params.id,
 				data: {
 					title: this.suggestion.title,
 					content: this.suggestion.content
 				}
-			}
-			this.$store.dispatch('updateSuggestion', newsuggestion)
+			})
 		}
 	}
 }

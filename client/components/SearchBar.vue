@@ -3,7 +3,7 @@
 		<b-input placeholder="Search suggestions..." 
 		rounded
 		expanded
-		type="text"
+		type="search"
 		icon="search"
 		size="is-medium"
 		v-bind:value="value"
@@ -17,7 +17,18 @@
 <script>
 export default {
 	name: 'SearchBar',
-	props: ['value']
+	props: ['value'],
+	data () {
+		return {
+			input: ''
+		}
+	},
+	methods: {
+		search () {
+			console.log(this.input)
+			this.$store.dispatch('UPDATE_CURATED_LIST', this.input)
+		}
+	}
 };
 </script>
 

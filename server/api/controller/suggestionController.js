@@ -6,6 +6,22 @@ exports.getAllSuggestions = async (req, res) => {
 		let suggestion = await Suggestion.find()
 		res.status(200).json(suggestion)
 	} catch (err) {
+		console.log(err)
+		res.status(500).json(err)
+	}
+}
+
+exports.findSuggestions = async (req, res) => {
+	try {
+		const { search_field, search_value } = req.query
+
+		let suggestion = await Suggestion.find({ 
+			title: { $regex: req.query.title, $options: 'i' } 
+		}).exec()
+
+		res.status(200).json(suggestion)
+	} catch (err) {
+		console.log(err)
 		res.status(500).json(err)
 	}
 }

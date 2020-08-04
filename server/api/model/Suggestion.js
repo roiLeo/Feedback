@@ -3,10 +3,12 @@ let suggestionSchema = mongoose.Schema({
 	title: {
 		type: String,
 		required: true,
+		text: true
 	},
 	content: {
 		type: String,
 		required: true,
+		text: true
 	},
 	url: {
 		type: String,
