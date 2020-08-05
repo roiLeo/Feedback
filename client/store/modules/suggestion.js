@@ -1,5 +1,6 @@
 import SuggestionsService from '@/services/api/SuggestionsService'
 import * as Filters from '~/helpers/filters'
+import Vue from 'vue'
 
 export const state = () => ({
 	list: [],
@@ -7,7 +8,7 @@ export const state = () => ({
 	filter: {
 		search: '',
 		status: 'all',
-		order: 'new'
+		order: 'top'
 	}
 })
 
@@ -16,7 +17,13 @@ export const mutations = {
 		state.list.push(suggestion)
 	},
 	SET_SINGLE_SUGGESTION (state, suggestion) {
-		state.list = suggestion
+		if (state.list.length) {
+			state.list = [
+				...state.list.map(s => s._id !== suggestion._id ? s : suggestion)
+			]
+		} else {
+			state.list = suggestion
+		}
 	},
 	SET_SUGGESTION (state, suggestions) {
 		state.list = suggestions
@@ -26,20 +33,18 @@ export const mutations = {
 	},
 	SET_FILTER_ORDER (state, order) {
 		state.filter.order = order
-	},
-
-	setFilterStatus (state, status) { state.filter.status = status },
-	setOrder (state, order) { state.filter.order = order }
+	}
 }
 
 export const actions = {
 	async loadSuggestion ({commit}, id) {
 		const response = await SuggestionsService.getSuggestion(id)
-		commit('SET_SINGLE_SUGGESTION', response)
+		commit('SET_SUGGESTION', response)
 	},
 	async updateSuggestion ({commit}, suggestion) {
+		console.log(suggestion)
 		const response = await SuggestionsService.updateSuggestion(suggestion)
-		commit('SET_SUGGESTION', response)
+		commit('SET_SINGLE_SUGGESTION', response)
 	},
 	async loadSuggestions ({commit}) {
 		const response = await SuggestionsService.getSuggestions()
