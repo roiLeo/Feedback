@@ -15,9 +15,17 @@ exports.findSuggestions = async (req, res) => {
 	try {
 		const { search_field, search_value } = req.query
 
-		let suggestion = await Suggestion.find({ 
-			title: { $regex: req.query.title, $options: 'i' } 
-		}).exec()
+		let filter = {}
+		if (typeof req.query.filter !== 'undefined') {
+			filter.title = { $regex: req.query.title, $options: 'i' } 
+		}
+		
+		let order = 'creationDate'
+		if (req.query.order === 'new') order = 'creationDate'
+		if (req.query.order === 'top') order = 'votes'
+		if (req.query.order === 'trending') order = 'author'
+
+		let suggestion = await Suggestion.find(filter).sort({[order]: 'desc'})
 
 		res.status(200).json(suggestion)
 	} catch (err) {

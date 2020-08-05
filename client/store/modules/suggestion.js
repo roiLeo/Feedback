@@ -7,7 +7,7 @@ export const state = () => ({
 	filter: {
 		search: '',
 		status: 'all',
-		order: 'createdAt'
+		order: 'new'
 	}
 })
 
@@ -20,33 +20,16 @@ export const mutations = {
 	},
 	SET_SUGGESTION (state, suggestions) {
 		state.list = suggestions
-
-		/*
-		 * if (state.list.length) {
-		 * 	state.list = [
-		 * 		...state.list.map(s => s._id !== suggestions._id ? s : suggestions)
-		 * 	]
-		 * } else {
-		 * 	state.list = suggestions
-		 * }
-		 */
 	},
-	SET_FILTER_SEARCH (state, search) { state.filter.search = search },
+	SET_FILTER_SEARCH (state, search) {
+		state.filter.search = search
+	},
+	SET_FILTER_ORDER (state, order) {
+		state.filter.order = order
+	},
 
 	setFilterStatus (state, status) { state.filter.status = status },
-
-	setOrder (state, order) { state.filter.order = order },
-
-	filterSuggestions (state) {
-		const suggestions = [...state.list]
-		// state.list = suggestions
-		// console.log(state.filter)
-		// state.list = Filters.filterSuggestions(state.filter, suggestions)
-	},
-	// orderLeads (state) {
-	// 	const leads = [...state.filteredLeads]
-	// 	state.filteredLeads = Filters.orderLeads(state.filter.order, leads)
-	// }
+	setOrder (state, order) { state.filter.order = order }
 }
 
 export const actions = {
@@ -70,14 +53,17 @@ export const actions = {
 		await commit('SET_FILTER_SEARCH', search)
 		dispatch('filterSuggestions')
 	},
+	async orderSearch ({commit, dispatch}, order) {
+		await commit('SET_FILTER_ORDER', order)
+		dispatch('filterSuggestions')
+	},
 	async filterSuggestions ({commit, state}) {
-		await commit('filterSuggestions')
-		// await commit('orderLeads')
 		const response = await SuggestionsService.findSuggestions(state.filter)
 		commit('SET_SUGGESTION', response)
 	}
 }
 
 export const getters = {
-	suggestions: state => state.list
+	suggestions: state => state.list,
+	order: state => state.filter.order
 }

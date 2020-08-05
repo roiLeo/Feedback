@@ -12,8 +12,9 @@ export default {
 	},
 	async findSuggestions (filter) {
 		const params = {
-			title: filter.search
+			order: filter.order
 		}
+		if (filter.search !== '') params.filter = filter.search
 		const response = await axios.get(process.env.VUE_APP_BASEURL + '/suggestion/search', {params})
 		return response.data
 	},

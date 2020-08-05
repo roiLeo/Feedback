@@ -14,13 +14,16 @@
 				<button class="button is-medium">Search</button>
 			</p>
 		</b-field>
-		<b-dropdown v-model="selectedOptions" append-to-body aria-role="menu">
+		<b-dropdown 
+		v-model="$store.state.suggestion.filter.order"
+		@change="handleOrder"
+		append-to-body aria-role="menu">
 			<a class="navbar-item" slot="trigger" role="button">
 				<b-icon icon="sort-amount-down"></b-icon>
-				<span>Order By</span> 
+				<span>Order By</span>
 				<span class="selected-option"
-				v-show="selectedOptions.length"><b
-				>{{ selectedOptions }}</b></span>
+				v-show="$store.state.suggestion.filter.order.length">
+				<b>{{ $store.state.suggestion.filter.order }}</b></span>
 			</a>
 			<b-dropdown-item value="trending">
 				<div class="media">
@@ -52,11 +55,6 @@
 
 <script>
 export default {
-	data () {
-		return {
-			selectedOptions: []
-		};
-	},
 	commputed: {
 		search () {
 			return this.$store.state.list.filter.search
@@ -65,9 +63,12 @@ export default {
 	methods: {
 		handleSearch (search) {
 			this.$store.dispatch('filterSearch', search)
+		},
+		handleOrder (order) {
+			this.$store.dispatch('orderSearch', order)
 		}
 	}
-};
+}
 </script>
 
 <style lang="scss" scoped>
