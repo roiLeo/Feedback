@@ -19,7 +19,7 @@ export const mutations = {
 	SET_SINGLE_SUGGESTION (state, suggestion) {
 		if (state.list.length) {
 			state.list = [
-				...state.list.map(s => s._id !== suggestion._id ? s : suggestion)
+				...state.list.map((sugg) => sugg._id !== suggestion._id ? sugg : suggestion)
 			]
 		} else {
 			state.list = suggestion
