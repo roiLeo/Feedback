@@ -17,9 +17,9 @@ exports.findSuggestions = async (req, res) => {
 
 		let filter = {}
 		if (typeof req.query.filter !== 'undefined') {
-			filter.title = { $regex: req.query.title, $options: 'i' } 
+			filter.title = { $regex: req.query.filter, $options: 'i' } 
 		}
-		
+
 		let order = 'creationDate'
 		if (req.query.order === 'new') order = 'creationDate'
 		if (req.query.order === 'top') order = 'votes'
