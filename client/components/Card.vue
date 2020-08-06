@@ -12,6 +12,7 @@
 						>{{suggestion.title}}</nuxt-link>
 					</p>
 					<p class="subtitle is-6">@{{suggestion.author}}</p>
+					<TimeAgo :date="suggestion.creationDate"></TimeAgo>
 				</div>
 				<div class="media-right">
 					<b-button
@@ -27,10 +28,12 @@
 </template>
 
 <script>
+import TimeAgo from '~/components/TimeAgo'
 import VotesCounter from '~/components/VotesCounter'
 
 export default {
 	components: {
+		TimeAgo,
 		VotesCounter
 	},
 	props: {
@@ -42,7 +45,7 @@ export default {
 	methods: {
 		updateSuggestionVote(number) {
 			if (number) {
-				let newsuggestion = {
+				const newsuggestion = {
 					id: this.suggestion._id,
 					data: {
 						votes: number

@@ -1,20 +1,19 @@
 <template>
 	<div>
 		<b-field>
-			<b-input placeholder="Search suggestions..." 
+			<b-input placeholder="Search suggestions..."
 			rounded
 			expanded
 			type="search"
 			icon="search"
 			size="is-medium"
 			aria-label="Search by company name or job title"
-
 			@input="handleSearch"></b-input>
 			<p class="control">
 				<button class="button is-medium">Search</button>
 			</p>
 		</b-field>
-		<b-dropdown 
+		<b-dropdown
 		v-model="$store.state.suggestion.filter.order"
 		@change="handleOrder"
 		append-to-body aria-role="menu">
