@@ -5,12 +5,6 @@
 			class="subtitle has-text-grey has-text-centered"
 		>Join other users in helping make the website better</h2>
 
-		<!-- <div class="columns is-centered">
-			<div class="column is-6">
-				<SearchBar v-model="seachInput"></SearchBar>
-			</div>
-		</div> -->
-
 		<SuggestionFilter></SuggestionFilter>
 
 		<!-- <Tabs :status="status" :count="countByStatus"></Tabs> -->
@@ -25,7 +19,6 @@
 
 <script>
 import Card from '~/components/Card';
-import SearchBar from '~/components/SearchBar';
 import SuggestionFilter from '~/components/SuggestionFilter';
 import Tabs from '~/components/Tabs';
 
@@ -34,7 +27,6 @@ export default {
 
 	components: {
 		Card,
-		SearchBar,
 		SuggestionFilter,
 		Tabs
 	},

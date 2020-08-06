@@ -13,14 +13,19 @@
 					</p>
 					<p class="subtitle is-6">@{{suggestion.author}}</p>
 					<TimeAgo :date="suggestion.creationDate"></TimeAgo>
+					<Tags :tags="suggestion.tags"></Tags>
 				</div>
-				<div class="media-right">
-					<b-button
-						tag="nuxt-link"
-						:to="{ name: 'suggestions-id', params: { id: suggestion._id } }"
-						type="is-primary has-text-light"
-						icon-left="comment-alt"
-					></b-button>
+
+				<div>
+					<StatusInfo :status="suggestion.status"></StatusInfo>
+					<div class="media-right">
+						<b-button
+							tag="nuxt-link"
+							:to="{ name: 'suggestions-id', params: { id: suggestion._id } }"
+							type="is-primary has-text-light"
+							icon-left="comment-alt"
+						></b-button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -28,11 +33,15 @@
 </template>
 
 <script>
+import StatusInfo from '~/components/StatusInfo'
+import Tags from '~/components/Tags'
 import TimeAgo from '~/components/TimeAgo'
 import VotesCounter from '~/components/VotesCounter'
 
 export default {
 	components: {
+		StatusInfo,
+		Tags,
 		TimeAgo,
 		VotesCounter
 	},
@@ -43,7 +52,7 @@ export default {
 		}
 	},
 	methods: {
-		updateSuggestionVote(number) {
+		updateSuggestionVote (number) {
 			if (number) {
 				const newsuggestion = {
 					id: this.suggestion._id,
@@ -66,7 +75,9 @@ export default {
 }
 
 .card .media-right {
-	margin-top: auto;
+	margin-top: 8px;
 	margin-bottom: auto;
+	margin-left: 0;
+	text-align: right;
 }
 </style>

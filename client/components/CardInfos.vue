@@ -5,8 +5,8 @@
 				<div class="media-content">
 					<p class="title is-4">
 						<nuxt-link
-              				:to="{ name: 'suggestions-id', params: { id: suggestion.id } }"
-              			>{{suggestion.title}}</nuxt-link>
+							:to="{ name: 'suggestions-id', params: { id: suggestion.id } }"
+						>{{suggestion.title}}</nuxt-link>
 					</p>
 				</div>
 				<div class="media-right">
@@ -15,13 +15,16 @@
 			</div>
 
 			<div class="media">
-				<div class="media-content">
-					{{suggestion.content}}
-				</div>
+				<div class="media-content">{{suggestion.content}}</div>
 				<VotesCounter :votes="suggestion.votes" @updateVotes="updateSuggestionVote"></VotesCounter>
 			</div>
-			
-			<time class="is-size-7" :datetime="suggestion.creationDate">Le {{new Date(suggestion.creationDate).toLocaleString() }}</time>
+			<p>
+				{{suggestion.status}}
+			</p>
+			<time
+				class="is-size-7"
+				:datetime="suggestion.creationDate"
+			>Le {{new Date(suggestion.creationDate).toLocaleString() }}</time>
 		</div>
 	</div>
 </template>
@@ -35,20 +38,22 @@ export default {
 	},
 	props: {
 		suggestion: {
-			type: [Array, Object],
+			type: [
+				Array,
+				Object
+			],
 			required: true
 		}
 	},
 	methods: {
-		updateSuggestionVote(number) {
+		updateSuggestionVote (number) {
 			if (number) {
-				let newsuggestion = {
+				const newsuggestion = {
 					id: this.suggestion._id,
 					data: {
 						votes: number
 					}
 				}
-
 				this.$store.dispatch('updateSuggestion', newsuggestion)
 			}
 		}
