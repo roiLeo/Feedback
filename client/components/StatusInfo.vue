@@ -1,5 +1,5 @@
 <template>
-	<span class="tag has-text-weight-bold" :class="showStatusColor(status)">
+	<span class="tag has-text-weight-semibold" :class="showStatusColor(status)">
 		{{showStatusText(status)}}
 	</span>
 </template>
