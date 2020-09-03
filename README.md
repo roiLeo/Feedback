@@ -2,10 +2,7 @@
 
 > Feature Requests
 
-[![NPM Version][npm-image]][npm-url]
-[![Downloads Stats][npm-downloads]][npm-url]
-
-One to two paragraph statement about your product and what it does.
+Track feedback to build better products
 
 ## Installation
 
@@ -27,8 +24,6 @@ $ npm run generate
 ```
 
 ## Usage example
-
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
 
 _For more examples and usage, please refer to the [Wiki][wiki]._
 
