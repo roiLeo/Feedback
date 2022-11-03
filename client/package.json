@@ -17,7 +17,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.0",
     "axios": "^0.21.2",
     "express": "^4.17.1",
-    "nuxt": "^2.14.4",
+    "nuxt": "^2.15.8",
     "nuxt-buefy": "^0.3.31",
     "nuxt-fontawesome": "^0.4.0",
     "timeago.js": "^4.0.2"
