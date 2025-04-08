@@ -5,11 +5,26 @@ export default defineNuxtConfig({
     head: {
       title: 'Next',
       charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1',
+      viewport: 'width=device-width, initial-scale=1'
     }
   },
 
-  modules: ['@nuxtjs/i18n', '@nuxt/ui'],
+  modules: ['@nuxtjs/i18n', '@nuxt/ui', '@nuxtjs/supabase'],
+
+  supabase: {
+    redirectOptions: {
+      login: '/auth/login',
+      callback: '/auth/confirm',
+      exclude: ['/']
+    }
+  },
+
+  runtimeConfig: {
+    public: {
+      appName: 'FeedbackHub',
+      apiBaseUrl: process.env.API_BASE_URL
+    }
+  },
 
   css: ['~/assets/css/main.css'],
 
